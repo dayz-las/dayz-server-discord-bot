@@ -59,12 +59,12 @@ client.on('message', (message) => {
                 sendEmbedMessage(createEmbedMessage("Información del servidor", fields, thumbnail, undefined), message);
                 break;
             case "sugerencia":
-                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencia', message);
+                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencias', message);
                 break;
             case "ayuda":
-                let fields = createHelp();
+                let ayuda = createHelp();
                 sendMentionMessage(':incoming_envelope: **Inbox**', message);
-                message.author.send(createEmbedMessage(undefined, fields, undefined, undefined));
+                message.author.send(createEmbedMessage(undefined, ayuda, undefined, undefined));
                 break;
             default:
                 sendMentionMessage('no existe ese comando', message);
