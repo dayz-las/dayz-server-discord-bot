@@ -32,7 +32,7 @@ client.on('message', (message) => {
 
         switch (args[0].toLowerCase()) {
             case "info":
-                let thumbnail = "https://i0.pngocean.com/files/156/1/153/arma-2-operation-arrowhead-dayz-infestation-survivor-stories-arma-3-apex-steam-others.jpg";
+                let thumbnail = "https://fontmeme.com/images/Dayz-Game.jpg";
                 let fields = [{
                     name: "Nombre del servidor",
                     value: "DayZ LAS (SCL)"
