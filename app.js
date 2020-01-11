@@ -22,10 +22,12 @@ client.on("guildMemberAdd", (member) => {
 client.on('message', (message) => {
     let fields;
     try {
-        if (message.author.equals(client.user) && !message.content.startsWith(prefix)) {
+        if (message.author.equals(client.user)) {
             return;
         }
-
+        if (!message.content.startsWith(prefix)) {
+            return;
+        }
         let args = message.content.substring(prefix.length).split(" ");
 
         switch (args[0].toLowerCase()) {
