@@ -60,7 +60,7 @@ client.on('message', (message) => {
                 sendEmbedMessage(createEmbedMessage("Información del servidor", fields, thumbnail, undefined), message);
                 break;
             case "sugerencia":
-                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencia')
+                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencia', message);
                 break;
             case "ayuda":
                 fields = createHelp();
