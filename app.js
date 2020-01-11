@@ -32,13 +32,35 @@ client.on('message', (message) => {
 
         switch (args[0].toLowerCase()) {
             case "info":
-                sendNormalMessage('que pongo aqui pipin :D', message);
+                let thumbnail = "https://i0.pngocean.com/files/156/1/153/arma-2-operation-arrowhead-dayz-infestation-survivor-stories-arma-3-apex-steam-others.jpg";
+                let fields = [{
+                    name: "Nombre del servidor",
+                    value: "DayZ LAS (SCL)"
+                },
+                {
+                    name: "Mods",
+                    value: "No, el servidor es vanilla"
+                },
+                {
+                    name: "Ciclo día/noche",
+                    value: "2/1 Hora tiempo real"
+                },
+                {
+                    name: "Persistencia",
+                    value: "Sí"
+                },
+                {
+                    name: "Uptime",
+                    value: "24/7"
+                },
+                {
+                    name: "Dirección IP",
+                    value: `[Click aquí para obtener la IP actual del servidor](https://www.trackyserver.com/server/dayz-las-450840)`
+                }]
+                sendEmbedMessage(createEmbedMessage("Información del servidor", fields, thumbnail, undefined), message);
                 break;
-            case 'ip':
-                sendNormalMessage('La ip del servidor es: **190.21.247.138**', message);
-                break;
-            case 'mods':
-                sendNormalMessage('Actualmente el servidor esta enfocado en vanilla', message)
+            case "sugerencia":
+                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencia')
                 break;
             case "ayuda":
                 fields = createHelp();

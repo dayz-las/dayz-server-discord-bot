@@ -36,7 +36,7 @@ exports.sendNormalMessage = (text, message) => {
 exports.createHelp = () => {
     let help = [{
         name: "Servidor",
-        value: "`!info` `!ip` `!mods`"
+        value: "`!info` `!sugerencia`"
     }]
 
     return help;
