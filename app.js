@@ -20,7 +20,6 @@ client.on("guildMemberAdd", (member) => {
 
 
 client.on('message', (message) => {
-    let fields;
     try {
         if (message.author.equals(client.user)) {
             return;
@@ -63,7 +62,7 @@ client.on('message', (message) => {
                 sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencia', message);
                 break;
             case "ayuda":
-                fields = createHelp();
+                let fields = createHelp();
                 sendMentionMessage(':incoming_envelope: **Inbox**', message);
                 message.author.send(createEmbedMessage(undefined, fields, undefined, undefined));
                 break;
