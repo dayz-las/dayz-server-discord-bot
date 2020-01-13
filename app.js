@@ -2,10 +2,11 @@ const { Client } = require('discord.js');
 const { logginCredentials } = require('./src/discord/ready');
 const { createEmbedMessage, createHelp, sendMentionMessage, sendNormalMessage, sendEmbedMessage } = require('./src/discord/message');
 const { sayHello } = require("./src/discord/memberAdd");
-const { sendErrorConsole } = require('./src/helper/utils');
+const { sendErrorConsole, getIpByDomainName } = require('./src/helper/utils');
 const config = require('./config.json');
 
 const prefix = config.discord.prefix;
+const serverDomainName = "dayz.moralesm.cl";
 const client = new Client();
 
 client.login(process.env.BOT_TOKEN);
@@ -66,6 +67,10 @@ client.on('message', (message) => {
                 sendMentionMessage(':incoming_envelope: **Inbox**', message);
                 message.author.send(createEmbedMessage(undefined, ayuda, undefined, undefined));
                 break;
+            case "ip":
+                getIpByDomainName(serverDomainName)
+                    .then(ip => sendMentionMessage(`La direccion del servidor es: ${ip}:2302`, message))
+                    .catch(ip => sendMentionMessage('No se ha podido obtener la ip del servidor, si tienes problemas para ingresar por favor informanos en el canal de #ayuda'))
             default:
                 sendMentionMessage('no existe ese comando', message);
         }
