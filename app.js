@@ -70,7 +70,8 @@ client.on('message', (message) => {
             case "ip":
                 getIpByDomainName(serverDomainName)
                     .then(ip => sendMentionMessage(`La direccion del servidor es: ${ip}:2302`, message))
-                    .catch(ip => sendMentionMessage('No se ha podido obtener la ip del servidor, si tienes problemas para ingresar por favor informanos en el canal de #ayuda'))
+                    .catch(ip => sendMentionMessage('No se ha podido obtener la ip del servidor, si tienes problemas para ingresar por favor informanos en el canal de #ayuda', message))
+                break;
             default:
                 sendMentionMessage('no existe ese comando', message);
         }
