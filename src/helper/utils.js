@@ -1,4 +1,4 @@
-import { request } from 'request'
+import request from 'request'
 
 export function sendErrorConsole(error) {
     console.log('----------ERROR----------')
