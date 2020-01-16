@@ -1,5 +1,5 @@
-export function sayHello(member) {
-	member.guild.channels.find(role => role.name === 'general').send(member.toString() + ' Bienvenido al servidor **DayZ LAS (SCL)**, usa el comando `!ayuda` para obtener más información.');
+export function sayHello(member, title) {
+	member.guild.channels.find(role => role.name === 'general').send(member.toString() + title.welcome.stringValue)
 }
 
 export function sendMessageToChannel(member, nameChannel, message) {

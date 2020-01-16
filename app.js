@@ -23,7 +23,7 @@ client.on('ready', () => {
 })
 
 client.on('guildMemberAdd', (member) => {
-    sayHello(member)
+    sayHello(member, title)
 })
 
 
@@ -39,57 +39,52 @@ client.on('message', (message) => {
 
         switch (args[0].toLowerCase()) {
             case 'info': {
-                let thumbnail = 'https://fontmeme.com/images/Dayz-Game.jpg'
+                let thumbnail = title.thumbnailValue.stringValue
                 let fields = [{
-                    name: 'Nombre del servidor',
-                    value: 'DayZ LAS (SCL)'
+                    name: title.serverNameTitle.stringValue,
+                    value: title.serverNameValue.stringValue
                 },
                 {
-                    name: 'Mods',
-                    value: 'No, el servidor es vanilla'
+                    name: title.serverModTitle.stringValue,
+                    value: title.serverModValue.stringValue
                 },
                 {
-                    name: 'Ciclo día/noche',
-                    value: '2/1 Hora tiempo real'
+                    name: title.dayCycleTitle.stringValue,
+                    value: title.dayCycleValue.stringValue
                 },
                 {
-                    name: 'Persistencia',
-                    value: 'Sí'
+                    name: title.persistenceTitle.stringValue,
+                    value: title.persistenceTitleValue.stringValue
                 },
                 {
-                    name: 'Uptime',
-                    value: '24/7'
-                },
-                {
-                    name: 'Dirección IP',
-                    value: '[Click aquí para obtener la IP actual del servidor](https://www.trackyserver.com/server/dayz-las-450840)'
+                    name: title.uptimeTitle.stringValue,
+                    value: title.upTimeValue.stringValue
                 }]
-                sendEmbedMessage(createEmbedMessage('Información del servidor', fields, thumbnail, undefined), message)
+                sendEmbedMessage(createEmbedMessage(title.infoTitle.stringValue, fields, thumbnail, undefined), message)
                 break
             }
             case 'sugerencia': {
-                sendMentionMessage('si tienes ideas o mejoras para que el servidor siga creciendo, no dudes en dejar tu comentario en el canal de #sugerencias', message)
+                sendMentionMessage(title.suggestion.stringValue, message)
                 break
             }
             case 'ayuda': {
-                let ayuda = createHelp()
-                sendMentionMessage(':incoming_envelope: **Inbox**', message)
+                let ayuda = createHelp(title)
+                sendMentionMessage(title.helpChannelMessage.stringValue, message)
                 message.author.send(createEmbedMessage(undefined, ayuda, undefined, undefined))
                 break
             }
             case 'ip': {
                 getIpByDomainName(serverDomainName)
-                    .then(ip => sendMentionMessage(`La direccion del servidor es: ${ip}:2302`, message))
-                    .catch(() => sendMentionMessage('No se ha podido obtener la ip del servidor, si tienes problemas para ingresar por favor informanos en el canal de #ayuda', message))
-                console.log(title.bienvenido.stringValue)
+                    .then(ip => sendMentionMessage(`${title.ipMessage.stringValue} ${ip}${title.port.stringValue}`, message))
+                    .catch(() => sendMentionMessage(title.ipError.stringValue, message))
                 break
             }
             default: {
-                sendMentionMessage('no existe ese comando', message)
+                sendMentionMessage(title.commandFalse.stringValue, message)
             }
         }
     } catch (err) {
-        sendMentionMessage('ocurrió un error', message)
+        sendMentionMessage(title.generalError.stringValue, message)
         sendErrorConsole(err)
     }
 })

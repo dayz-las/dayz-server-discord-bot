@@ -33,10 +33,10 @@ export function sendNormalMessage(text, message) {
     message.channel.send(text)
 }
 
-export function createHelp() {
+export function createHelp(title) {
     let help = [{
-        name: 'Servidor',
-        value: '`!info` `!sugerencia` `!ip`'
+        name: title.helpServidorTitle.stringValue,
+        value: title.helpServidorCommand.stringValue
     }]
 
     return help
