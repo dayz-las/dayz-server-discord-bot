@@ -76,7 +76,10 @@ client.on('message', (message) => {
             case 'ip': {
                 getIpByDomainName(serverDomainName)
                     .then(ip => sendMentionMessage(`${title.ipMessage.stringValue} ${ip}${title.port.stringValue}`, message))
-                    .catch(() => sendMentionMessage(title.ipError.stringValue, message))
+                    .catch((error) => {
+                        sendErrorConsole(error)
+                        sendMentionMessage(title.ipError.stringValue, message)
+                    })
                 break
             }
             default: {
