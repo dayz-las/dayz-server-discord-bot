@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,12 @@
   "homepage": "https://github.com/ggonzalezh/dayz-bot#readme",
   "dependencies": {
     "discord.js": "^11.5.1",
+    "express": "^4.17.1",
+    "gamedig": "^2.0.20",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "jest": "^24.9.0"
   }
 }
