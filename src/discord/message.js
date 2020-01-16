@@ -1,47 +1,47 @@
-const { RichEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js')
 
-exports.createEmbedMessage = (author = undefined, fields = undefined, thumbNail = undefined, footer = undefined) => {
-    let embed = new RichEmbed();
+export function createEmbedMessage(author = undefined, fields = undefined, thumbNail = undefined, footer = undefined) {
+    let embed = new RichEmbed()
 
     if (undefined != author) {
-        embed.setAuthor(author);
+        embed.setAuthor(author)
     }
 
     if (fields.length > 0 && undefined != fields) {
         for (const field of fields) {
-            embed.addField(field.name, " " + field.value)
+            embed.addField(field.name, ' ' + field.value)
         }
     }
 
     if (undefined != thumbNail) {
-        embed.setThumbnail(thumbNail);
+        embed.setThumbnail(thumbNail)
     }
 
     if (undefined != footer) {
-        embed.setFooter(footer.text, footer.icon);
+        embed.setFooter(footer.text, footer.icon)
     }
-    embed.setColor(0x860202);
+    embed.setColor(0x860202)
 
-    return embed;
+    return embed
 }
 
-exports.sendMentionMessage = (text, message) => {
-    message.channel.send(`${message.author.toString()} ` + text);
+export function sendMentionMessage(text, message) {
+    message.channel.send(`${message.author.toString()} ` + text)
 }
 
-exports.sendNormalMessage = (text, message) => {
-    message.channel.send(text);
-};
+export function sendNormalMessage(text, message) {
+    message.channel.send(text)
+}
 
-exports.createHelp = () => {
+export function createHelp(title) {
     let help = [{
-        name: "Servidor",
-        value: "`!info` `!sugerencia` `!ip`"
+        name: title.helpServidorTitle.stringValue,
+        value: title.helpServidorCommand.stringValue
     }]
 
-    return help;
+    return help
 }
 
-exports.sendEmbedMessage = (embed, message) => {
-    message.channel.send(embed);
+export function sendEmbedMessage(embed, message) {
+    message.channel.send(embed)
 }
