@@ -1,6 +1,6 @@
 const { RichEmbed } = require('discord.js')
 
-export function createEmbedMessage(author = undefined, fields = undefined, thumbNail = undefined, footer = undefined) {
+exports.createEmbedMessage = function(author = undefined, fields = undefined, thumbNail = undefined, footer = undefined) {
     let embed = new RichEmbed()
 
     if (undefined != author) {
@@ -25,15 +25,15 @@ export function createEmbedMessage(author = undefined, fields = undefined, thumb
     return embed
 }
 
-export function sendMentionMessage(text, message) {
+exports.sendMentionMessage = function(text, message) {
     message.channel.send(`${message.author.toString()} ` + text)
 }
 
-export function sendNormalMessage(text, message) {
+exports.sendNormalMessage = function(text, message) {
     message.channel.send(text)
 }
 
-export function createHelp(title) {
+exports.createHelp = function(title) {
     let help = [{
         name: title.helpServidorTitle.stringValue,
         value: title.helpServidorCommand.stringValue
@@ -42,6 +42,6 @@ export function createHelp(title) {
     return help
 }
 
-export function sendEmbedMessage(embed, message) {
+exports.sendEmbedMessage = function(embed, message) {
     message.channel.send(embed)
 }
