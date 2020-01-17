@@ -11,7 +11,7 @@ const serverDomainName = 'dayz.moralesm.cl'
 const client = new Client()
 var title
 
-client.login(/*process.env.BOT_TOKEN*/'NjY2NzgwNDE2NDU5NDA3Mzcx.XiIqrA.BNE2_HxK8IKAk6dDtAV8diixCdU')
+client.login(process.env.BOT_TOKEN)
 
 client.on('ready', () => {
     logginCredentials(client)
