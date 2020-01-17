@@ -1,9 +1,9 @@
 const { Client } = require('discord.js')
-import { logginCredentials } from './src/discord/ready.js'
-import { createEmbedMessage, createHelp, sendMentionMessage, sendEmbedMessage } from './src/discord/message.js'
-import { sayHello } from './src/discord/memberAdd.js'
-import { sendErrorConsole, getIpByDomainName } from './src/helper/utils.js'
-import { getTitle } from './src/firebase/getTitle.js'
+const { logginCredentials } = require('./src/discord/ready.js')
+const { createEmbedMessage, createHelp, sendMentionMessage, sendEmbedMessage } = require('./src/discord/message.js')
+const { sayHello } = require('./src/discord/memberAdd.js')
+const { sendErrorConsole, getIpByDomainName } = require('./src/helper/utils.js')
+const { getTitle } = require('./src/firebase/getTitle.js')
 const config = require('./config.json')
 
 const prefix = config.discord.prefix

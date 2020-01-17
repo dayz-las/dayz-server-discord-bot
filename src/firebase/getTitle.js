@@ -1,6 +1,6 @@
-import request from 'request'
+const request = require('request')
 
-export function getTitle() {
+exports.getTitle = function() {
     return new Promise((resolve, reject) => {
         request(process.env.TITLE_ENDPOINT, (err, res, body) => {
             body = JSON.parse(body)

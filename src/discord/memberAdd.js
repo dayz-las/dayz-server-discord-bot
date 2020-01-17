@@ -1,7 +1,7 @@
-export function sayHello(member, title) {
+exports.sayHello = function(member, title) {
 	member.guild.channels.find(role => role.name === 'general').send(member.toString() + title.welcome.stringValue)
 }
 
-export function sendMessageToChannel(member, nameChannel, message) {
+exports.sendMessageToChannel = function(member, nameChannel, message) {
 	member.guild.channels.find(role => role.name === nameChannel).send(`${member.toString()}, ` + message)
 }
