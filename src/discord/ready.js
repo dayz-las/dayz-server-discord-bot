@@ -1,8 +1,8 @@
-exports.logginCredentials = (client) => {
-    setActivityBot(client);
-    console.log("DayZBOT ON!");
+exports.logginCredentials = function(client) {
+    setActivityBot(client)
+    console.log('DayZBOT ON!')
 }
 
 let setActivityBot = (client) => {
-    client.user.setActivity("!ayuda");
+    client.user.setActivity('!ayuda')
 }
