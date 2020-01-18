@@ -1,14 +1,13 @@
 const { Client } = require('discord.js')
 const { logginCredentials } = require('./src/discord/ready.js')
 const { createEmbedMessage, createHelp, sendMentionMessage, sendEmbedMessage } = require('./src/discord/message.js')
-const { sayHello } = require('./src/discord/memberAdd.js')
+const { sayHello, addMemberToRole } = require('./src/discord/memberAdd.js')
 const { sendErrorConsole, getIpByDomainName } = require('./src/helper/utils.js')
 const { getTitle } = require('./src/firebase/getTitle.js')
 const { searchItemInWiki } = require('./src/wiki/search');
 const config = require('./config.json')
 
 const prefix = config.discord.prefix
-const wikiRegex = /\[\[([^\[\]]*)\]\]|\[([^\[\]]*)\]/gu;
 const serverDomainName = 'dayz.moralesm.cl'
 const client = new Client()
 var title
@@ -26,6 +25,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', (member) => {
     sayHello(member, title)
+    addMemberToRole(member)
 })
 
 
