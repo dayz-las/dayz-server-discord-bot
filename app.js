@@ -25,7 +25,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', (member) => {
     sayHello(member, title)
-    addMemberToRole(member)
+    addMemberToRole(member) 
 })
 
 
