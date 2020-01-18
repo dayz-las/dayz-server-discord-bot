@@ -4,9 +4,11 @@ const { createEmbedMessage, createHelp, sendMentionMessage, sendEmbedMessage } =
 const { sayHello } = require('./src/discord/memberAdd.js')
 const { sendErrorConsole, getIpByDomainName } = require('./src/helper/utils.js')
 const { getTitle } = require('./src/firebase/getTitle.js')
+const { searchItemInWiki } = require('./src/wiki/search');
 const config = require('./config.json')
 
 const prefix = config.discord.prefix
+const wikiRegex = /\[\[([^\[\]]*)\]\]|\[([^\[\]]*)\]/gu;
 const serverDomainName = 'dayz.moralesm.cl'
 const client = new Client()
 var title
@@ -80,6 +82,10 @@ client.on('message', (message) => {
                         sendErrorConsole(error)
                         sendMentionMessage(title.ipError.stringValue, message)
                     })
+                break
+            }
+            case 'wiki': {
+                searchItemInWiki(message, title, args);
                 break
             }
             default: {
