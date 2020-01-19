@@ -1,12 +1,12 @@
 const request = require("request");
 
-exports.sendErrorConsole = function(error) {
+exports.sendErrorConsole = error => {
   console.log("----------ERROR----------");
   console.log(error);
   console.log("----------FIN----------");
 };
 
-exports.getIpByDomainName = function(name) {
+exports.getIpByDomainName = name => {
   return new Promise((resolve, reject) => {
     request(
       `http://ip-api.com/json/${name}?fields=query`,

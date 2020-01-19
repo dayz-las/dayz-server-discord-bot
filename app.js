@@ -13,7 +13,7 @@ const {
 } = require("./src/helper/utils.js");
 const { getTitle } = require("./src/firebase/getTitle.js");
 const config = require("./config.json");
-
+const { searchItemInWiki } = require("./src/wiki/search");
 const prefix = config.discord.prefix;
 const serverDomainName = "dayz.moralesm.cl";
 const client = new Client();
@@ -34,6 +34,7 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", member => {
   sayHello(member, title);
+  addMemberToRole(member);
 });
 
 client.on("message", message => {
@@ -106,6 +107,10 @@ client.on("message", message => {
             sendErrorConsole(error);
             sendMentionMessage(title.ipError.stringValue, message);
           });
+        break;
+      }
+      case "wiki": {
+        searchItemInWiki(message, title, args);
         break;
       }
       default: {

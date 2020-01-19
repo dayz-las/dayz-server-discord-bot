@@ -30,15 +30,15 @@ exports.createEmbedMessage = function(
   return embed;
 };
 
-exports.sendMentionMessage = function(text, message) {
+exports.sendMentionMessage = (text, message) => {
   message.channel.send(`${message.author.toString()} ` + text);
 };
 
-exports.sendNormalMessage = function(text, message) {
+exports.sendNormalMessage = (text, message) => {
   message.channel.send(text);
 };
 
-exports.createHelp = function(title) {
+exports.createHelp = title => {
   let help = [
     {
       name: title.helpServidorTitle.stringValue,
@@ -49,6 +49,6 @@ exports.createHelp = function(title) {
   return help;
 };
 
-exports.sendEmbedMessage = function(embed, message) {
+exports.sendEmbedMessage = (embed, message) => {
   message.channel.send(embed);
 };

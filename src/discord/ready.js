@@ -1,4 +1,4 @@
-exports.logginCredentials = function(client) {
+exports.logginCredentials = client => {
   setActivityBot(client);
   console.log("DayZBOT ON!");
 };

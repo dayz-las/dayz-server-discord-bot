@@ -2,7 +2,7 @@
   "name": "dayz-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "jest"
@@ -21,6 +21,7 @@
     "discord.js": "^11.5.1",
     "express": "^4.17.1",
     "gamedig": "^2.0.20",
+    "puppeteer": "^2.0.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
