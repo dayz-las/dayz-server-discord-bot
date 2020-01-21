@@ -122,5 +122,3 @@ client.on("message", message => {
     sendErrorConsole(err);
   }
 });
-
-require("./src/server").start();
