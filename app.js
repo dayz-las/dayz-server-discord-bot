@@ -28,7 +28,7 @@ client.on("ready", () => {
       title = result;
     })
     .catch(err => {
-      console.log(err);
+      console.log(err + err);
     });
 });
 
