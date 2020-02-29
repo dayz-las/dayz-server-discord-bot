@@ -4,7 +4,8 @@ const {
   createEmbedMessage,
   createHelp,
   sendMentionMessage,
-  sendEmbedMessage
+  sendEmbedMessage,
+  createInfo
 } = require("./src/discord/message.js");
 const { sayHello } = require("./src/discord/memberAdd.js");
 const {
@@ -17,6 +18,7 @@ const { searchItemInWiki } = require("./src/wiki/search");
 const prefix = config.discord.prefix;
 const serverDomainName = "dayz.moralesm.cl";
 const client = new Client();
+
 var title;
 
 client.login(process.env.BOT_TOKEN);
@@ -50,32 +52,7 @@ client.on("message", message => {
     switch (args[0].toLowerCase()) {
       case "info": {
         let thumbnail = title.thumbnailValue.stringValue;
-        let fields = [
-          {
-            name: title.serverNameTitle.stringValue,
-            value: title.serverNameValue.stringValue
-          },
-          {
-            name: title.serverDescriptionTitle.stringValue,
-            value: title.serverDescription.stringValue
-          },
-          {
-            name: title.serverModTitle.stringValue,
-            value: title.serverModValue.stringValue
-          },
-          {
-            name: title.persistenceTitle.stringValue,
-            value: title.persistenceTitleValue.stringValue
-          },
-          {
-            name: title.dayCycleTitle.stringValue,
-            value: title.dayCycleValue.stringValue
-          },
-          {
-            name: title.rulesTitle.stringValue,
-            value: title.rulesValue.stringValue
-          }
-        ];
+        let fields = createInfo(title);
         let footer = {
           text: `Información solicitada por ${message.author.username}`,
           icon: message.author.avatarURL
@@ -96,10 +73,13 @@ client.on("message", message => {
         break;
       }
       case "ayuda": {
+        let footerHelp = {
+          text: `Gracias por jugar en DayZ LAS,  ${message.author.username}`,
+          icon: message.author.avatarURL
+        };
         let ayuda = createHelp(title);
-        sendMentionMessage(title.helpChannelMessage.stringValue, message);
-        message.author.send(
-          createEmbedMessage(undefined, ayuda, undefined, undefined)
+        sendEmbedMessage(
+          createEmbedMessage(title.helpServidorTitle.stringValue, ayuda, title.thumbnailHelpValue.stringValue, footerHelp), message
         );
         break;
       }
