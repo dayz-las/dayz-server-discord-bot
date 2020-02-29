@@ -56,28 +56,36 @@ client.on("message", message => {
             value: title.serverNameValue.stringValue
           },
           {
-            name: title.serverModTitle.stringValue,
-            value: title.serverModValue.stringValue
+            name: title.serverDescriptionTitle.stringValue,
+            value: title.serverDescription.stringValue
           },
           {
-            name: title.dayCycleTitle.stringValue,
-            value: title.dayCycleValue.stringValue
+            name: title.serverModTitle.stringValue,
+            value: title.serverModValue.stringValue
           },
           {
             name: title.persistenceTitle.stringValue,
             value: title.persistenceTitleValue.stringValue
           },
           {
-            name: title.uptimeTitle.stringValue,
-            value: title.upTimeValue.stringValue
+            name: title.dayCycleTitle.stringValue,
+            value: title.dayCycleValue.stringValue
+          },
+          {
+            name: title.rulesTitle.stringValue,
+            value: title.rulesValue.stringValue
           }
         ];
+        let footer = {
+          text: `Información solicitada por ${message.author.username}`,
+          icon: message.author.avatarURL
+        };
         sendEmbedMessage(
           createEmbedMessage(
             title.infoTitle.stringValue,
             fields,
             thumbnail,
-            undefined
+            footer
           ),
           message
         );
