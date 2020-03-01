@@ -57,7 +57,7 @@ client.on("message", message => {
           },
           {
             name: title.serverModTitle.stringValue,
-            value: title.serverModValue.stringValue
+            value: title.serverModValue.stringValue.replace(/\\n/g, "\n")
           },
           {
             name: title.dayCycleTitle.stringValue,
