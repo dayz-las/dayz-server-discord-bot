@@ -1,6 +1,6 @@
 const { RichEmbed } = require("discord.js");
 
-exports.createEmbedMessage = function (
+exports.createEmbedMessage = function(
   author = undefined,
   fields = undefined,
   thumbNail = undefined,
@@ -73,7 +73,7 @@ exports.createHelp = title => {
   return help;
 };
 
-exports.createInfo = (title) => {
+exports.createInfo = title => {
   let fields = [
     {
       name: title.serverNameTitle.stringValue,
@@ -85,7 +85,7 @@ exports.createInfo = (title) => {
     },
     {
       name: title.serverModTitle.stringValue,
-      value: title.serverModValue.stringValue
+      value: title.serverModValue.stringValue.replace(/\\n/g, "\n")
     },
     {
       name: title.persistenceTitle.stringValue,

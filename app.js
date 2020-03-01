@@ -79,7 +79,13 @@ client.on("message", message => {
         };
         let ayuda = createHelp(title);
         sendEmbedMessage(
-          createEmbedMessage(title.helpServidorTitle.stringValue, ayuda, title.thumbnailHelpValue.stringValue, footerHelp), message
+          createEmbedMessage(
+            title.helpServidorTitle.stringValue,
+            ayuda,
+            title.thumbnailHelpValue.stringValue,
+            footerHelp
+          ),
+          message
         );
         break;
       }
